@@ -44,6 +44,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	std::mt19937 rng;
 	Player paddle;
 	int playerMoveCounter = 0;
 	static constexpr int playerMovePeriod = 15;

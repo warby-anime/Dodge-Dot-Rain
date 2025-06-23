@@ -24,7 +24,8 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	drop ( rng )
 {
 }
 
@@ -44,7 +45,10 @@ void Game::UpdateModel()
 	{
 		paddle.PaddleMove (wnd.kbd);
 		playerMoveCounter = 0;
+		drop.Speed ();
 	}
+
+		drop.Respawn ( rng );
 	
 }
 
