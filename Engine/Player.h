@@ -5,8 +5,9 @@
 class Player
 {
 public:
-	void Draw (Graphics& gfx ) const;
-	void PaddleMove (Keyboard& kbd );
+	void Draw ( Graphics& gfx ) const;
+	void PaddleMove ( Keyboard& kbd );
+	void ClampToScreen ();
 
 private:
 	int x = 400;
@@ -14,6 +15,7 @@ private:
 	static constexpr int width = 30;
 	static constexpr int height = 20;
 	Color c = Colors::Gray;
-	int speed = 1;
+	static constexpr int speed = 1;
+	int health = 10;
 };
 

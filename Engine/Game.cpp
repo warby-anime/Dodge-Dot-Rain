@@ -38,6 +38,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	paddle.ClampToScreen ();
 	playerMoveCounter++;
 	if (playerMoveCounter >= playerMovePeriod)
 	{
@@ -49,6 +50,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	paddle.Draw (gfx);
+	paddle.Draw ( gfx );
+	drop.Draw ( gfx );
 	
 }

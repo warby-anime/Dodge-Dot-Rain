@@ -24,6 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Player.h"
+#include "Rain.h"
 
 class Game
 {
@@ -46,5 +47,6 @@ private:
 	Player paddle;
 	int playerMoveCounter = 0;
 	static constexpr int playerMovePeriod = 15;
+	Rain drop;
 	/********************************/
 };

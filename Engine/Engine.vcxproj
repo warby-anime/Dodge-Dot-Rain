@@ -143,10 +143,10 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Keyboard.h" />
-    <ClInclude Include="Location.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Rain.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SpriteCodex.h" />
   </ItemGroup>
@@ -159,6 +159,7 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Rain.cpp" />
     <ClCompile Include="SpriteCodex.cpp" />
   </ItemGroup>
   <ItemGroup>
