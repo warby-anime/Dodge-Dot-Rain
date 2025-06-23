@@ -14,6 +14,6 @@ private:
 	static constexpr int width = 30;
 	static constexpr int height = 20;
 	Color c = Colors::Gray;
-	int speed = 0;
+	int speed = 1;
 };
 

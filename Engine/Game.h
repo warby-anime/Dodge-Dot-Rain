@@ -44,6 +44,7 @@ private:
 	/********************************/
 	/*  User Variables              */
 	Player paddle;
-	Keyboard kbd;
+	int playerMoveCounter = 0;
+	static constexpr int playerMovePeriod = 15;
 	/********************************/
 };

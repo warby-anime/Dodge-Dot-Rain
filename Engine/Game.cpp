@@ -38,7 +38,12 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	paddle.PaddleMove (kbd);
+	playerMoveCounter++;
+	if (playerMoveCounter >= playerMovePeriod)
+	{
+		paddle.PaddleMove (wnd.kbd);
+		playerMoveCounter = 0;
+	}
 	
 }
 
