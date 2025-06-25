@@ -51,5 +51,8 @@ private:
 	static constexpr int nMaxDrop =  10;
 	Rain drop [nMaxDrop];
 	int nDrops = 2;
+	bool isStarted = false;
+	bool isGameOver = false;
+
 	/********************************/
 };

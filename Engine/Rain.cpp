@@ -17,9 +17,19 @@ void Rain::Speed ()
 	y += speed;
 }
 
-int Rain::GetY ()
+int Rain::GetX () const
+{
+	return x;
+}
+
+int Rain::GetY () const
 {
 	return y;
+}
+
+int Rain::GetR () const
+{
+	return r;
 }
 
 void Rain::Respawn ( std::mt19937& rng )

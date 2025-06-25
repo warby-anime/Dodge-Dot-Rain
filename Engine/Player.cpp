@@ -33,4 +33,17 @@ void Player::ClampToScreen ()
 	
 }
 
+bool Player::IsHit ( Rain& drop )
+{
+	int playerRight = x + width;
+	int playerBottom = y + height;
+	int rainRight = drop.GetX () + drop.GetR ();
+	int rainBottom = drop.GetY () + drop.GetR ();
+
+	return x <= rainRight &&
+		playerRight >= drop.GetX () &&
+		y <= rainBottom &&
+		playerBottom >= drop.GetY ();
+}
+
 

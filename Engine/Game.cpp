@@ -48,18 +48,24 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	paddle.ClampToScreen ();
-	playerMoveCounter++;
-	if ( playerMoveCounter >= playerMovePeriod )
+	if ( !isGameOver )
 	{
-		paddle.PaddleMove ( wnd.kbd );
-		playerMoveCounter = 0;
+
+
+		paddle.ClampToScreen ();
+		playerMoveCounter++;
+		if ( playerMoveCounter >= playerMovePeriod )
+		{
+			paddle.PaddleMove ( wnd.kbd );
+
+			playerMoveCounter = 0;
+		}
+
 		for ( int i = 0; i < nDrops; i++ )
 		{
 			drop [i].Speed ();
 			if ( drop [i].GetY () == gfx.ScreenHeight )
 			{
-				//drop [i].Init ( rng );
 				drop [i].Respawn ( rng );
 				if ( nDrops != nMaxDrop )
 				{
@@ -67,11 +73,13 @@ void Game::UpdateModel()
 
 				}
 			}
+			if ( paddle.IsHit ( drop [i] ) )
+			{
+				isGameOver = true;
+			}
 		}
+
 	}
-	
-	
-	
 	
 	
 	

@@ -1,6 +1,7 @@
 #pragma once
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "Rain.h"
 
 
 class Player
@@ -9,6 +10,7 @@ public:
 	void Draw ( Graphics& gfx ) const;
 	void PaddleMove ( Keyboard& kbd );
 	void ClampToScreen ();
+	bool IsHit ( Rain& drop );
 
 private:
 	int x = 400;

@@ -9,7 +9,9 @@ public:
 	void Init ( std::mt19937& rng );
 	void Draw ( Graphics& gfx );
 	void Speed ();
-	int GetY ();
+	int GetX () const;
+	int GetY () const;
+	int GetR () const;
 	void Respawn ( std::mt19937& rng );
 private:
 	std::uniform_int_distribution<int>xDist;
