@@ -48,6 +48,8 @@ private:
 	Player paddle;
 	int playerMoveCounter = 0;
 	static constexpr int playerMovePeriod = 15;
-	Rain drop;
+	static constexpr int nMaxDrop =  10;
+	Rain drop [nMaxDrop];
+	int nDrops = 2;
 	/********************************/
 };

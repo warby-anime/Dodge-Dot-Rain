@@ -25,8 +25,17 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	drop ( rng )
+	rng ( std::random_device ()() )
+	
+	
+	
+	
 {
+	
+	for ( int i = 0; i < nDrops; i++ )
+	{
+		drop [i].Init ( rng );
+	}
 }
 
 void Game::Go()
@@ -41,20 +50,40 @@ void Game::UpdateModel()
 {
 	paddle.ClampToScreen ();
 	playerMoveCounter++;
-	if (playerMoveCounter >= playerMovePeriod)
+	if ( playerMoveCounter >= playerMovePeriod )
 	{
-		paddle.PaddleMove (wnd.kbd);
+		paddle.PaddleMove ( wnd.kbd );
 		playerMoveCounter = 0;
-		drop.Speed ();
-	}
+		for ( int i = 0; i < nDrops; i++ )
+		{
+			drop [i].Speed ();
+			if ( drop [i].GetY () == gfx.ScreenHeight )
+			{
+				//drop [i].Init ( rng );
+				drop [i].Respawn ( rng );
+				if ( nDrops != nMaxDrop )
+				{
+					nDrops++;
 
-		drop.Respawn ( rng );
+				}
+			}
+		}
+	}
+	
+	
+	
+	
+	
 	
 }
 
 void Game::ComposeFrame()
 {
 	paddle.Draw ( gfx );
-	drop.Draw ( gfx );
+	for ( int i = 0; i < nDrops; i++ )
+	{
+		drop[i].Draw (gfx);
+
+	}
 	
 }
