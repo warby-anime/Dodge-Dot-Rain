@@ -18,7 +18,7 @@ private:
 	int x = 400;
 	int y = 60;
 	int r = 5;
-	Color c = Colors::Red;
+	Color c = Colors::Cyan;
 	int speed = 1;
 	
 	

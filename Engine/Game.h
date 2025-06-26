@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Player.h"
 #include "Rain.h"
+#include "HealthBar.h"
 
 class Game
 {
@@ -55,6 +56,7 @@ private:
 	static constexpr int rainMovePeriod = 2;
 	int iFrames = 0;
 	static constexpr int invulnerableFrames = 780;
+	HealthBar hp;
 	bool isInvulnerable = false;
 	bool isStarted = false;
 	bool isGameOver = false;

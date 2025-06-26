@@ -89,7 +89,6 @@ void Game::UpdateModel()
 	{
 		if ( paddle.IsHit ( drop [i] ) )
 		{
-			
 			isInvulnerable = true;
 		}
 	}
@@ -102,6 +101,8 @@ void Game::UpdateModel()
 	{
 		iFrames = 0;
 		paddle.TakeHealth ();
+		hp.DamageTaken ();
+
 
 	}
 		if ( paddle.GetHealth () == 0 )
@@ -115,11 +116,12 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	paddle.Draw ( gfx );
+	hp.Draw ( gfx );
 	for ( int i = 0; i < nDrops; i++ )
 	{
-		drop[i].Draw (gfx);
+		drop [i].Draw ( gfx );
 
 	}
+	paddle.Draw ( gfx );
 	
 }
