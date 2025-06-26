@@ -46,4 +46,14 @@ bool Player::IsHit ( Rain& drop )
 		playerBottom >= drop.GetY ();
 }
 
+int Player::GetHealth () const
+{
+	return health;
+}
+
+int Player::TakeHealth ()
+{
+	return health--;
+}
+
 

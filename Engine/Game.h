@@ -51,6 +51,11 @@ private:
 	static constexpr int nMaxDrop =  10;
 	Rain drop [nMaxDrop];
 	int nDrops = 2;
+	int rainMoveCounter = 0;
+	static constexpr int rainMovePeriod = 2;
+	int iFrames = 0;
+	static constexpr int invulnerableFrames = 780;
+	bool isInvulnerable = false;
 	bool isStarted = false;
 	bool isGameOver = false;
 

@@ -59,28 +59,56 @@ void Game::UpdateModel()
 			paddle.PaddleMove ( wnd.kbd );
 
 			playerMoveCounter = 0;
+			rainMoveCounter++;
+
 		}
 
-		for ( int i = 0; i < nDrops; i++ )
+		
+		if ( rainMoveCounter >= rainMovePeriod )
 		{
-			drop [i].Speed ();
-			if ( drop [i].GetY () == gfx.ScreenHeight )
+			for ( int i = 0; i < nDrops; i++ )
 			{
-				drop [i].Respawn ( rng );
-				if ( nDrops != nMaxDrop )
+				drop [i].Speed ();
+				if ( drop [i].GetY () == gfx.ScreenHeight )
 				{
-					nDrops++;
+					drop [i].Respawn ( rng );
+					if ( nDrops != nMaxDrop )
+					{
+						nDrops++;
 
+					}
 				}
-			}
-			if ( paddle.IsHit ( drop [i] ) )
-			{
-				isGameOver = true;
+				rainMoveCounter = 0;
+
 			}
 		}
+	}
+
+
+	for ( int i = 0; i < nDrops; i++ )
+	{
+		if ( paddle.IsHit ( drop [i] ) )
+		{
+			
+			isInvulnerable = true;
+		}
+	}
+	if ( isInvulnerable )
+	{
+		iFrames++;
+		isInvulnerable = false;
+	}
+	if ( iFrames >= invulnerableFrames )
+	{
+		iFrames = 0;
+		paddle.TakeHealth ();
 
 	}
-	
+		if ( paddle.GetHealth () == 0 )
+		{
+			isGameOver = true;
+
+		}
 	
 	
 }

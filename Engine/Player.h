@@ -11,6 +11,8 @@ public:
 	void PaddleMove ( Keyboard& kbd );
 	void ClampToScreen ();
 	bool IsHit ( Rain& drop );
+	int GetHealth () const;
+	int TakeHealth ();
 
 private:
 	int x = 400;
