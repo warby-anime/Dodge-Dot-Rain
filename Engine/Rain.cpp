@@ -17,6 +17,11 @@ void Rain::Speed ()
 	y += speed;
 }
 
+int Rain::SpeedIncrease ()
+{
+	return speed += 1;
+}
+
 int Rain::GetX () const
 {
 	return x;

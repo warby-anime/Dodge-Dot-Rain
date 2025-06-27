@@ -9,6 +9,7 @@ public:
 	void Init ( std::mt19937& rng );
 	void Draw ( Graphics& gfx );
 	void Speed ();
+	int SpeedIncrease ();
 	int GetX () const;
 	int GetY () const;
 	int GetR () const;

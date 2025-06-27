@@ -32,7 +32,7 @@ Game::Game( MainWindow& wnd )
 	
 {
 	
-	for ( int i = 0; i < nDrops; i++ )
+	for ( int i = 0; i < nDrops; ++i )
 	{
 		drop [i].Init ( rng );
 	}
@@ -51,22 +51,21 @@ void Game::UpdateModel()
 	if ( !isGameOver )
 	{
 
-
 		paddle.ClampToScreen ();
-		playerMoveCounter++;
+		++playerMoveCounter;
 		if ( playerMoveCounter >= playerMovePeriod )
 		{
 			paddle.PaddleMove ( wnd.kbd );
 
 			playerMoveCounter = 0;
-			rainMoveCounter++;
+			++rainMoveCounter;
 
 		}
 
 		
 		if ( rainMoveCounter >= rainMovePeriod )
 		{
-			for ( int i = 0; i < nDrops; i++ )
+			for ( int i = 0; i < nDrops; ++i )
 			{
 				drop [i].Speed ();
 				if ( drop [i].GetY () == gfx.ScreenHeight )
@@ -85,7 +84,7 @@ void Game::UpdateModel()
 	}
 
 
-	for ( int i = 0; i < nDrops; i++ )
+	for ( int i = 0; i < nDrops; ++i )
 	{
 		if ( paddle.IsHit ( drop [i] ) )
 		{
@@ -94,7 +93,7 @@ void Game::UpdateModel()
 	}
 	if ( isInvulnerable )
 	{
-		iFrames++;
+		++iFrames;
 		isInvulnerable = false;
 	}
 	if ( iFrames >= invulnerableFrames )
@@ -103,21 +102,33 @@ void Game::UpdateModel()
 		paddle.TakeHealth ();
 		hp.DamageTaken ();
 
-
 	}
 		if ( paddle.GetHealth () == 0 )
 		{
 			isGameOver = true;
 
 		}
-	
+
+		++timerCounter;
+
+		if ( timerCounter >= timerPeriod )
+		{
+			score.Increase ();
+			for ( int i = 0; i < nDrops; ++i )
+			{
+				drop [i].SpeedIncrease ();
+			}
+			timerCounter = 0;
+
+		}
 	
 }
 
 void Game::ComposeFrame()
 {
 	hp.Draw ( gfx );
-	for ( int i = 0; i < nDrops; i++ )
+	score.Draws ( gfx );
+	for ( int i = 0; i < nDrops; ++i )
 	{
 		drop [i].Draw ( gfx );
 
