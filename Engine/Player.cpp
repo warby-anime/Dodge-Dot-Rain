@@ -56,4 +56,9 @@ int Player::TakeHealth ()
 	return health--;
 }
 
+int Player::IncreaseWidth ()
+{
+	return width += 3;
+}
+
 

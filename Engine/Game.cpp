@@ -117,6 +117,7 @@ void Game::UpdateModel()
 			for ( int i = 0; i < nDrops; ++i )
 			{
 				drop [i].SpeedIncrease ();
+				paddle.IncreaseWidth ();
 			}
 			timerCounter = 0;
 

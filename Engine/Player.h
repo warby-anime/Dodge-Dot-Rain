@@ -13,11 +13,12 @@ public:
 	bool IsHit ( Rain& drop );
 	int GetHealth () const;
 	int TakeHealth ();
+	int IncreaseWidth ();
 
 private:
 	int x = 400;
 	int y = 500;
-	static constexpr int width = 30;
+	int width = 30;
 	static constexpr int height = 20;
 	Color c = Colors::Gray;
 	static constexpr int speed = 1;
